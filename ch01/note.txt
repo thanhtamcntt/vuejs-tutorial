@@ -1,0 +1,10 @@
+===============
+bai 1: 
+1 cai dat vuejs
+2 vue instance
+- khoi tao doi tuong vue
+3 data & method
+==============================
+bai 2: 
+1. Data binding : rang buoc du lieu
+2. Javascript Expression: su dung bieu thuc javascript trong vuejs
