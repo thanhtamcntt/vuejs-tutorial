@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evens VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: relative;
+        }
+        .box-2 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Count: {{ counter }}</h1>
+        <button v-on:click="handleClick($event, 5)">Click Me</button>
+        <div class="box" v-on:mousemove="handleMouseMove">
+            <p>ClintX: {{ clientX }}</p>
+            <p>ClintY: {{ clientY }}</p>
+            <div class="box-2" v-on:mousemove.top="handleMouseMoveChild">
+
+            </div>
+        </div>
+        <form action="../server.php" v-on:submit.prevent="handleSubmitForm">
+            <label>Nhap firtName</label>
+            <input type="text" name="firstName"> <br>
+            <label>Nhap email</label>
+            <input type="email" name="email"> <br>
+            <input type="submit" value="Dang nhap">
+        </form>
+    </div>
+</body>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter : 0,
+                clientX: 0,
+                clientY: 0
+            },
+            methods: {
+                handleClick(e, number) {
+                    // console.log('click', this);
+                    // this.counter += 1;
+                    this.counter += number;
+                },
+                handleMouseMove(e) {
+                    console.log(e);
+                    this.clientX = e.clientX;
+                    this.clientY = e.clientY;
+                }, 
+                handleSubmitForm(e) {
+                    console.log(e);
+                },
+                handleMouseMoveChild(e) {
+                    // ngan chan su kien anh huong den phan tu cha
+                    // e.stopPropagation();
+                    console.log('handleMouseMoveChild', e.target);
+                }
+            }
+        })
+    </script>
+</html>

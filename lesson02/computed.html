@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ reversedMessage }}</p>
+        <hr>
+        <p>Number + A = {{ addA }}</p>
+        <p>Number + A = {{ addB }}</p>
+        <button v-on:click="a++">A = A + 1</button>
+        <button v-on:click="b++">B = B + 1</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World',
+            a: 0,
+            b: 0,
+            number: 20
+        },
+        methods: {
+            
+        },
+        computed: {
+            // a computed getter
+            reversedMessage: function () {
+                // `this` points to the vm instance
+                return this.message.split('').reverse().join('')
+            },
+            addA() {
+                return this.a + this.number
+            },
+            addB() {
+                return this.b + this.number
+            }
+        }
+    })
+</script>
+
+</html>
