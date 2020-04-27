@@ -1,3 +1,14 @@
 khai bao even trong vue
 v-mode : tu dong rang buoc vao bien
 v-show : no van hien thi trong cau truc dom, no chi an di bang thuoc tinh display: none, v-if: remove luon toan bo cau truc dom
+
+link github : https://github.com/vuejs-templates/webpack
+
+
+====================
+1. Development
+- babel
+    -> ES6 phien ban moi cua ES5
+- webpack -> cong cu giup dong goi code, dong goi ma nguon
+
+2. Production
